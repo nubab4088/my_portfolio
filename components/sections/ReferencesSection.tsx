@@ -1,0 +1,139 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
+const references = [
+  {
+    name: 'Dr. Suman Ahmmed',
+    role: 'Head & Associate Professor, Dept. of CSE',
+    institution: 'United International University',
+    email: 'suman@cse.uiu.ac.bd',
+    lorLabel: 'View LOR',
+    lorLink: '/lor/LoRSumanSir.pdf',
+  },
+  {
+    name: 'Dr. Mohammad Nurul Huda',
+    role: 'Professor, Dept. of CSE',
+    institution: 'United International University',
+    email: 'mnh@cse.uiu.ac.bd',
+    lorLabel: 'View LOR',
+    lorLink: '/lor/LoR_HudaSir.pdf',
+  },
+];
+
+export default function ReferencesSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.12 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+  };
+
+  return (
+    <section id="references" className="bg-[#0a0a0a] pt-6 pb-24 relative overflow-hidden">
+      {/* Ambient Background Glow */}
+      <div className="pointer-events-none absolute bottom-10 left-1/3 -z-10 h-80 w-80 rounded-full bg-[#6366f1]/10 blur-[130px]" />
+
+      {/* MATCHED CONTAINER: max-w-7xl ensures exact left-edge alignment across all sections */}
+      <div className="container-max mx-auto max-w-7xl px-6 relative z-10">
+        
+        {/* Editorial Section Header */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={containerVariants}
+          className="mb-16 space-y-4"
+        >
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-md">
+            <span className="h-2 w-2 rounded-full bg-[#6366f1]" />
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#a0a0a0]">
+              References
+            </span>
+          </motion.div>
+
+          <motion.h2 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
+            Academic <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-[#818cf8]">References</span>
+          </motion.h2>
+        </motion.div>
+
+        {/* Bento References Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          className="grid grid-cols-1 gap-8 md:grid-cols-2"
+        >
+          {references.map((reference, index) => (
+            <motion.div
+              key={reference.name}
+              variants={itemVariants}
+              className="group relative rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 md:p-10 backdrop-blur-xl transition-all duration-500 hover:border-[#6366f1]/40 hover:bg-white/[0.04] shadow-2xl flex flex-col justify-between h-full overflow-hidden"
+            >
+              {/* Subtle hover gradient bloom */}
+              <div className="absolute -right-10 -bottom-10 h-32 w-32 rounded-full bg-[#6366f1]/10 blur-xl group-hover:bg-[#6366f1]/20 transition-all duration-500 pointer-events-none" />
+
+              <div>
+                {/* Top Header Row with Index Badge */}
+                <div className="flex items-center justify-between mb-6">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-xs font-bold text-[#818cf8] group-hover:border-[#6366f1]/50 group-hover:bg-[#6366f1]/10 group-hover:text-white transition-all duration-300">
+                    0{index + 1}
+                  </span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/20 group-hover:bg-[#6366f1] transition-colors" />
+                </div>
+
+                {/* Name */}
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 tracking-tight group-hover:text-[#818cf8] transition-colors">
+                  {reference.name}
+                </h3>
+                
+                {/* Role & Institution */}
+                <div className="space-y-1.5 text-sm sm:text-base text-[#a0a0a0] mb-8 leading-relaxed font-normal">
+                  <p className="font-semibold text-white/90">{reference.role}</p>
+                  <p className="text-[#818cf8]/90 font-medium">{reference.institution}</p>
+                  <p className="pt-2 flex items-center gap-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#707070]">Email:</span>
+                    <a 
+                      href={`mailto:${reference.email}`} 
+                      className="text-[#e5e5e5] hover:text-[#6366f1] transition-colors underline decoration-white/20 underline-offset-4 hover:decoration-[#6366f1] font-medium"
+                    >
+                      {reference.email}
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              {/* View LOR Button */}
+              <div className="pt-6 border-t border-white/5 flex items-center justify-between">
+                <span className="text-xs font-semibold text-[#707070] uppercase tracking-wider">Letter of Recommendation</span>
+                <a
+                  href={reference.lorLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-[#6366f1]/40 bg-[#6366f1]/15 px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#818cf8] hover:border-[#6366f1] hover:bg-[#6366f1] hover:text-white hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] transition-all duration-300 shrink-0 group/btn"
+                >
+                  <span>{reference.lorLabel}</span>
+                  <svg 
+                    className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}

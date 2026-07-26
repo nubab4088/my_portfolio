@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg text-text;
+  font-feature-settings: 'rlig' 1, 'calt' 1;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-surface;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-surface-3 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-surface-2;
+}
+
+/* Selection styles */
+::selection {
+  @apply bg-accent/20 text-text;
+}
+
+/* Smooth transitions */
+a, button {
+  @apply transition-colors duration-200;
+}
+
+/* CSS Utility Classes */
+@layer components {
+  .container-max {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+
+  .glass {
+    @apply backdrop-blur-sm bg-white/10 border border-white/20;
+  }
+
+  .section-title {
+    @apply text-section font-bold tracking-tight;
+  }
+
+  .grad-text {
+    @apply bg-gradient-to-r from-[#6366f1] to-[#a78bfa] bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply px-8 py-3 bg-[#6366f1] text-white rounded-lg font-medium hover:bg-[#818cf8] transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 border border-[#6366f1] text-[#6366f1] rounded-lg font-medium hover:bg-[#6366f1]/10 transition-colors;
+  }
+}
