@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export default function ExperienceSection() {
   const experiences = [
     {
-      title: 'Graduate & Undergraduate Teaching Assistant',
+      title: 'Undergraduate Teaching Assistant',
       company: 'United International University (UIU) · Department of CSE & Data Science',
       period: 'Oct 2024 – Feb 2026',
       description: [
