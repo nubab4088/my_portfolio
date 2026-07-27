@@ -84,10 +84,9 @@ export default function HeroSection() {
 
             {/* Crisp Bio Paragraph */}
             <motion.p variants={itemVariants} className="max-w-2xl text-base sm:text-lg leading-relaxed text-[#a0a0a0] font-normal">
-              Aspiring Software Engineer with strong interests in full-stack development, AI integration, and
-              research-oriented problem solving. Passionate about building innovative software solutions that
-              create real-world impact while continuously learning, adapting, and contributing in collaborative
-              environments.
+              Aspiring tech professional with strong interests in research-driven innovation, AI, and full-stack development. Passionate about contributing to impactful
+projects that combine scientific inquiry, technology, and real-world problem solving. Skilled in learning new concepts, conducting analytical investigations, and
+collaborating in multidisciplinary environments while continuously pursuing growth and knowledge
             </motion.p>
 
             {/* Primary & Secondary Action Bar */}
