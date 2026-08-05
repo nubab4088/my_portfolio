@@ -111,33 +111,6 @@ collaborating in multidisciplinary environments while continuously pursuing grow
                 Download CV
               </a>
             </motion.div>
-
-            {/* Minimalist Contact & Social Bar */}
-            <motion.div variants={itemVariants} className="pt-4 border-t border-white/10 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs sm:text-sm font-medium text-[#707070]">
-              <span className="text-[#a0a0a0] uppercase tracking-wider font-semibold text-xs">Connect:</span>
-              <a
-                href="mailto:nbably4088@gmail.com"
-                className="hover:text-[#6366f1] transition-colors underline decoration-white/20 underline-offset-4 hover:decoration-[#6366f1]"
-              >
-                nbably4088@gmail.com
-              </a>
-              <a
-                href="https://www.linkedin.com/in/nusrat-jahan-bably"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#6366f1] transition-colors hover:underline underline-offset-4"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://github.com/nubab4088"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#6366f1] transition-colors hover:underline underline-offset-4"
-              >
-                GitHub
-              </a>
-            </motion.div>
           </motion.div>
 
           {/* Right Column: Sleek Bento Grid Stats */}
@@ -210,8 +183,6 @@ collaborating in multidisciplinary environments while continuously pursuing grow
           </motion.div>
 
         </div>
-
-     
 
         {/* Centered Scroll Indicator (Now completely outside the columns) */}
         <div className="w-full flex justify-center mt-16 relative z-10">
