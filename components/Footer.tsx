@@ -56,8 +56,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#0a0a0a] border-t border-white/10 pt-16 pb-12 relative overflow-hidden">
-      {/* Subtle Background Glow */}
-      <div className="pointer-events-none absolute bottom-0 left-1/2 -z-10 h-64 w-96 -translate-x-1/2 rounded-full bg-[#6366f1]/5 blur-[100px]" />
+      {/* Subtle Background Glow - Updated to Teal */}
+      <div className="pointer-events-none absolute bottom-0 left-1/2 -z-10 h-64 w-96 -translate-x-1/2 rounded-full bg-teal-500/5 blur-[100px]" />
 
       {/* MATCHED CONTAINER: max-w-7xl ensures exact left-edge alignment */}
       <div className="container-max mx-auto max-w-7xl px-6 relative z-10">
@@ -72,7 +72,7 @@ export default function Footer() {
             className="md:col-span-5 space-y-4"
           >
             <h3 className="text-2xl font-black text-white tracking-tight">
-              Nusrat Jahan <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#818cf8]">Bably</span>
+              Nusrat Jahan <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-teal-300">Bably</span>
             </h3>
             <p className="text-[#a0a0a0] text-sm sm:text-base leading-relaxed max-w-sm font-normal">
               Building systems where intelligence meets usability. Research-driven full-stack engineer focused on clarity, scalability, and real-world impact.
@@ -81,7 +81,7 @@ export default function Footer() {
               <a
                 href="/cv/NusratJahanBably_CV.pdf"
                 download="NusratJahanBably_CV.pdf"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#6366f1]/40 bg-[#6366f1]/10 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-[#818cf8] hover:border-[#6366f1] hover:bg-[#6366f1] hover:text-white hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all duration-300"
+                className="inline-flex items-center gap-2 rounded-xl border border-teal-500/40 bg-teal-500/10 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-teal-300 hover:border-teal-500 hover:bg-teal-500 hover:text-white hover:shadow-[0_0_20px_rgba(20,184,166,0.4)] transition-all duration-300"
               >
                 <span>Download CV</span>
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -99,7 +99,7 @@ export default function Footer() {
             viewport={{ once: true }}
             className="md:col-span-3 space-y-4"
           >
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#818cf8]">
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-teal-300">
               Quick Links
             </h3>
             <ul className="space-y-2.5">
@@ -109,7 +109,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-[#a0a0a0] hover:text-white transition-colors text-sm font-medium flex items-center gap-2 group"
                   >
-                    <span className="h-1 w-1 rounded-full bg-white/20 group-hover:bg-[#6366f1] transition-colors" />
+                    <span className="h-1 w-1 rounded-full bg-white/20 group-hover:bg-teal-500 transition-colors" />
                     <span>{link.label}</span>
                   </Link>
                 </li>
@@ -125,7 +125,7 @@ export default function Footer() {
             viewport={{ once: true }}
             className="md:col-span-4 space-y-4"
           >
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#818cf8]">
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-teal-300">
               Connect With Me
             </h3>
             <p className="text-[#a0a0a0] text-sm leading-relaxed">
@@ -138,7 +138,7 @@ export default function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-[#a0a0a0] hover:bg-[#6366f1] hover:border-[#6366f1] hover:text-white hover:scale-105 hover:shadow-[0_0_15px_rgba(99,102,241,0.4)] transition-all duration-300"
+                  className="w-11 h-11 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-[#a0a0a0] hover:bg-teal-500 hover:border-teal-500 hover:text-white hover:scale-105 hover:shadow-[0_0_15px_rgba(20,184,166,0.4)] transition-all duration-300"
                   title={link.label}
                 >
                   {link.icon}

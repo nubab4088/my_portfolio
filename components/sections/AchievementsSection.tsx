@@ -56,7 +56,7 @@ export default function AchievementsSection() {
   return (
     <section id="achievements" className="bg-[#0a0a0a] pt-6 pb-24 relative overflow-hidden">
       {/* Ambient Background Glow */}
-      <div className="pointer-events-none absolute top-1/3 right-10 -z-10 h-80 w-80 rounded-full bg-[#6366f1]/10 blur-[130px]" />
+      <div className="pointer-events-none absolute top-1/3 right-10 -z-10 h-80 w-80 rounded-full bg-teal-500/10 blur-[130px]" />
 
       {/* MATCHED CONTAINER: max-w-7xl ensures exact left-edge alignment */}
       <div className="container-max mx-auto max-w-7xl px-6 relative z-10">
@@ -70,14 +70,14 @@ export default function AchievementsSection() {
           className="mb-16 space-y-4"
         >
           <motion.div variants={itemVariants} className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-md">
-            <span className="h-2 w-2 rounded-full bg-[#6366f1]" />
+            <span className="h-2 w-2 rounded-full bg-teal-500" />
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#a0a0a0]">
               Recognition
             </span>
           </motion.div>
 
           <motion.h2 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
-            Awards &amp; <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-[#818cf8]">Achievements</span>
+            Awards &amp; <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-teal-300">Achievements</span>
           </motion.h2>
         </motion.div>
 
@@ -93,14 +93,14 @@ export default function AchievementsSection() {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="group relative rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 md:p-10 backdrop-blur-xl transition-all duration-500 hover:border-[#6366f1]/40 hover:bg-white/[0.04] shadow-2xl flex flex-col justify-between h-full overflow-hidden"
+              className="group relative rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 md:p-10 backdrop-blur-xl transition-all duration-500 hover:border-teal-500/40 hover:bg-white/[0.04] shadow-2xl flex flex-col justify-between h-full overflow-hidden"
             >
               {/* Subtle hover gradient bloom */}
-              <div className="absolute -right-10 -bottom-10 h-32 w-32 rounded-full bg-[#6366f1]/10 blur-xl group-hover:bg-[#6366f1]/20 transition-all duration-500 pointer-events-none" />
+              <div className="absolute -right-10 -bottom-10 h-32 w-32 rounded-full bg-teal-500/10 blur-xl group-hover:bg-teal-500/20 transition-all duration-500 pointer-events-none" />
 
               <div>
                 {/* Title */}
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight mb-3 group-hover:text-[#818cf8] transition-colors">
+                <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight mb-3 group-hover:text-teal-300 transition-colors">
                   {achievement.title}
                 </h3>
                 
@@ -113,7 +113,7 @@ export default function AchievementsSection() {
                 {achievement.proofImage && (
                   <div 
                     onClick={() => setSelectedProof({ title: achievement.title, image: achievement.proofImage! })}
-                    className="relative mt-6 h-40 w-full cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-black/50 group/img transition-all duration-500 hover:border-[#6366f1]/60 shadow-inner"
+                    className="relative mt-6 h-40 w-full cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-black/50 group/img transition-all duration-500 hover:border-teal-500/60 shadow-inner"
                   >
                     <img
                       src={achievement.proofImage}
@@ -129,7 +129,7 @@ export default function AchievementsSection() {
                     </div>
 
                     {/* Expand/View Pill Button */}
-                    <div className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/10 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur-md transition-all group-hover/img:bg-[#6366f1] group-hover/img:border-[#6366f1] group-hover/img:shadow-[0_0_15px_rgba(99,102,241,0.6)]">
+                    <div className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/10 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur-md transition-all group-hover/img:bg-teal-500 group-hover/img:border-teal-500 group-hover/img:shadow-[0_0_15px_rgba(20,184,166,0.6)]">
                       <span>View Artifact</span>
                       <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 3h6v6m-11 5L21 3M9 21H3v-6m11-5L3 21" />
@@ -142,7 +142,7 @@ export default function AchievementsSection() {
               {/* Index Numbering Anchor */}
               <div className="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-bold text-[#707070]">
                 <span>0{idx + 1}</span>
-                <span className="h-1.5 w-1.5 rounded-full bg-white/20 group-hover:bg-[#6366f1] transition-colors" />
+                <span className="h-1.5 w-1.5 rounded-full bg-white/20 group-hover:bg-teal-500 transition-colors" />
               </div>
             </motion.div>
           ))}
@@ -171,12 +171,12 @@ export default function AchievementsSection() {
                   <div className="flex items-center gap-2.5">
                     <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]" />
                     <span className="text-sm sm:text-base font-extrabold text-white tracking-tight">
-                      {selectedProof.title} <span className="text-[#818cf8] font-medium">— Verified Artifact</span>
+                      {selectedProof.title} <span className="text-teal-400 font-medium">— Verified Artifact</span>
                     </span>
                   </div>
                   <button
                     onClick={() => setSelectedProof(null)}
-                    className="rounded-full bg-white/10 p-2 text-white/70 hover:bg-[#6366f1] hover:text-white transition-all duration-200"
+                    className="rounded-full bg-white/10 p-2 text-white/70 hover:bg-teal-500 hover:text-white transition-all duration-200"
                     title="Close preview"
                   >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

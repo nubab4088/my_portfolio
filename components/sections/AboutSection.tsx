@@ -52,9 +52,9 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="about" className="bg-[#0a0a0a] pt-10 pb-24 relative overflow-hidden">
-      {/* Ambient Background Glows */}
-      <div className="pointer-events-none absolute top-1/3 left-1/2 -z-10 h-[450px] w-[700px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-[#6366f1]/15 via-[#818cf8]/5 to-transparent blur-[120px]" />
+    <section id="about" className="bg-[#0a0a0a] pt-12 pb-24 relative overflow-hidden">
+      {/* Ambient Background Glows - Updated to Soft Teal/Emerald */}
+      <div className="pointer-events-none absolute top-1/3 left-1/2 -z-10 h-[450px] w-[700px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-teal-500/15 via-emerald-400/5 to-transparent blur-[120px]" />
 
       {/* MATCHED HERO CONTAINER: max-w-7xl ensures perfect left-edge alignment */}
       <div className="container-max mx-auto max-w-7xl px-6 relative z-10">
@@ -68,14 +68,14 @@ export default function AboutSection() {
           className="mb-16 space-y-4"
         >
           <motion.div variants={itemVariants} className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-md">
-            <span className="h-2 w-2 rounded-full bg-[#6366f1]" />
+            <span className="h-2 w-2 rounded-full bg-teal-500" />
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#a0a0a0]">
               About Me
             </span>
           </motion.div>
 
           <motion.h2 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
-            Who I Am <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-[#818cf8]">Beyond Tech</span>
+            Who I Am <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-teal-300">Beyond Tech</span>
           </motion.h2>
         </motion.div>
 
@@ -91,16 +91,16 @@ export default function AboutSection() {
             <motion.div
               key={card.title}
               variants={itemVariants}
-              className="group relative rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-8 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-[#6366f1]/50 hover:bg-white/[0.05] hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] flex flex-col justify-between overflow-hidden"
+              className="group relative rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-8 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-teal-500/50 hover:bg-white/[0.05] hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] flex flex-col justify-between overflow-hidden"
             >
-              {/* Subtle top ambient glow on hover */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 h-24 w-48 bg-[#6366f1]/15 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              {/* Subtle top ambient glow on hover - Updated to Teal */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 h-24 w-48 bg-teal-500/15 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               <div>
                 {/* Header Row: Index Number & Interactive LED Indicator */}
                 <div className="mb-6 flex items-center justify-between relative z-10">
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-xs font-bold tracking-widest text-[#818cf8] group-hover:border-[#6366f1]/50 group-hover:bg-[#6366f1]/10 group-hover:text-white transition-all duration-300">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-xs font-bold tracking-widest text-teal-400 group-hover:border-teal-500/50 group-hover:bg-teal-500/10 group-hover:text-white transition-all duration-300">
                       0{index + 1}
                     </span>
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#707070] group-hover:text-[#a0a0a0] transition-colors">
@@ -108,10 +108,10 @@ export default function AboutSection() {
                     </span>
                   </div>
 
-                  {/* Glowing Status LED Dot */}
+                  {/* Glowing Status LED Dot - Updated to Teal */}
                   <div className="relative flex h-2.5 w-2.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6366f1] opacity-0 group-hover:opacity-75 transition-opacity duration-300" />
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white/20 group-hover:bg-[#6366f1] group-hover:shadow-[0_0_10px_rgba(99,102,241,0.8)] transition-all duration-300" />
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-0 group-hover:opacity-75 transition-opacity duration-300" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white/20 group-hover:bg-teal-400 group-hover:shadow-[0_0_10px_rgba(20,184,166,0.8)] transition-all duration-300" />
                   </div>
                 </div>
 
@@ -137,7 +137,7 @@ export default function AboutSection() {
           {/* Editorial Split Grid Layout */}
           <div className="mb-10 grid gap-8 lg:grid-cols-[1fr_1.8fr] lg:items-start border-t border-white/10 pt-16">
             <div className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#818cf8]">
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-teal-400">
                 Outside The Terminal
               </span>
               <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
@@ -170,9 +170,9 @@ export default function AboutSection() {
                   {/* Cinematic Vignette Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90" />
                   
-                  {/* Card Content */}
+                  {/* Card Content - Updated to Teal subtitle */}
                   <div className="absolute inset-x-0 bottom-0 p-6 translate-y-1 transition-transform duration-300 group-hover:translate-y-0">
-                    <span className="inline-block rounded-lg border border-white/10 bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#818cf8] backdrop-blur-md mb-2">
+                    <span className="inline-block rounded-lg border border-white/10 bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-teal-300 backdrop-blur-md mb-2">
                       {item.subtitle}
                     </span>
                     <p className="text-lg font-extrabold text-white tracking-tight">{item.title}</p>

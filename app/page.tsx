@@ -10,7 +10,6 @@ import SkillsSection from '@/components/sections/SkillsSection';
 import EducationSection from '@/components/sections/EducationSection';
 import AchievementsSection from '@/components/sections/AchievementsSection';
 import ReferencesSection from '@/components/sections/ReferencesSection';
-import NavigationBar from '@/components/nav/NavigationBar';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -34,7 +33,6 @@ export default function Home() {
 
   return (
     <main className="relative">
-      <NavigationBar />
       <HeroSection />
       <AboutSection />
       <ExperienceSection />

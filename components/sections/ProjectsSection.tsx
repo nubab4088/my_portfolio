@@ -58,9 +58,10 @@ export default function ProjectsSection() {
         'Interfaced speed sensor for velocity-efficiency correlation analysis.',
         'Implemented wireless data transmission via Bluetooth and displayed metrics on I2C LCD.',
       ],
-      image: '/achieve/p4.jpeg', // Fallback: change back to '⛽' if you don't have p4.jpeg yet
-      link: 'https://bablyportfolio.framer.website/projects/fuel-theft-detection',
-      linkLabel: 'Project Link',
+      image: '/achieve/p4.jpeg', 
+      link: '/fuel?from=%2F%23projects-fuel',
+      linkLabel: 'View Fuel Case Study',
+      anchor: 'projects-fuel',
     },
   ];
 
@@ -80,7 +81,7 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="bg-[#0a0a0a] pt-6 pb-24 relative overflow-hidden">
       {/* Ambient Background Glow */}
-      <div className="pointer-events-none absolute bottom-1/3 left-10 -z-10 h-96 w-96 rounded-full bg-[#818cf8]/10 blur-[140px]" />
+      <div className="pointer-events-none absolute bottom-1/3 left-10 -z-10 h-96 w-96 rounded-full bg-teal-500/10 blur-[140px]" />
 
       {/* MATCHED CONTAINER: max-w-7xl ensures exact left-edge alignment */}
       <div className="container-max mx-auto max-w-7xl px-6 relative z-10">
@@ -94,14 +95,14 @@ export default function ProjectsSection() {
           className="mb-16 space-y-4"
         >
           <motion.div variants={itemVariants} className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-md">
-            <span className="h-2 w-2 rounded-full bg-[#6366f1]" />
+            <span className="h-2 w-2 rounded-full bg-teal-500" />
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#a0a0a0]">
               Portfolio
             </span>
           </motion.div>
 
           <motion.h2 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
-            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-[#818cf8]">Projects</span>
+            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-teal-300">Projects</span>
           </motion.h2>
         </motion.div>
 
@@ -116,15 +117,17 @@ export default function ProjectsSection() {
           {projects.map((project, idx) => (
             <motion.div
               key={idx}
+              id={project.anchor ? project.anchor : undefined}
               variants={itemVariants}
-              className="group relative rounded-[2.5rem] border border-white/10 bg-white/[0.02] p-8 md:p-12 backdrop-blur-xl transition-all duration-500 hover:border-[#6366f1]/40 hover:bg-white/[0.03] shadow-2xl overflow-hidden"
+              className="group relative rounded-[2.5rem] border border-white/10 bg-white/[0.02] p-8 md:p-12 backdrop-blur-xl transition-all duration-500 hover:border-teal-500/40 hover:bg-white/[0.03] shadow-2xl overflow-hidden"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
                 
                 {/* Left/Right Staged Visual Showcase - STUDIO FRAME (ZERO CROPPING) */}
                 <div className={`col-span-1 lg:col-span-5 ${idx % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}`}>
-                  <div className="relative aspect-video sm:aspect-[16/10] lg:aspect-square xl:aspect-[16/10] w-full rounded-3xl border border-white/10 bg-gradient-to-br from-[#141414] via-[#1a1a1a] to-[#0a0a0a] flex items-center justify-center overflow-hidden shadow-2xl group-hover:border-[#6366f1]/30 transition-all duration-500 p-4 sm:p-6">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.18)_0%,transparent_70%)] opacity-80 group-hover:opacity-100 transition-opacity z-0 pointer-events-none" />
+                  <div className="relative aspect-video sm:aspect-[16/10] lg:aspect-square xl:aspect-[16/10] w-full rounded-3xl border border-white/10 bg-gradient-to-br from-[#141414] via-[#1a1a1a] to-[#0a0a0a] flex items-center justify-center overflow-hidden shadow-2xl group-hover:border-teal-500/30 transition-all duration-500 p-4 sm:p-6">
+                    {/* Updated Radial Glow */}
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(20,184,166,0.18)_0%,transparent_70%)] opacity-80 group-hover:opacity-100 transition-opacity z-0 pointer-events-none" />
                     
                     {/* Check if it's an image file path or an emoji */}
                     {project.image.startsWith('/') ? (
@@ -146,7 +149,7 @@ export default function ProjectsSection() {
                 {/* Content Details */}
                 <div className={`col-span-1 lg:col-span-7 space-y-6 ${idx % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}>
                   <div>
-                    <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#818cf8] mb-2">
+                    <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-teal-300 mb-2">
                       {project.subtitle}
                     </span>
                     <h3 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
@@ -164,29 +167,29 @@ export default function ProjectsSection() {
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {project.highlights.map((highlight, i) => (
                         <li key={i} className="text-xs sm:text-sm text-[#a0a0a0] flex items-start gap-2.5 leading-normal">
-                          <span className="text-[#818cf8] font-bold mt-0.5">✓</span>
+                          <span className="text-teal-400 font-bold mt-0.5">✓</span>
                           <span>{highlight}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  {/* Tech Stack Pills & HIGHLIGHTED BLUE GITHUB BUTTON */}
+                  {/* Tech Stack Pills & HIGHLIGHTED GITHUB BUTTON */}
                   <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
                     <div className="flex flex-wrap gap-2 max-w-lg">
                       {project.technologies.map((tech) => (
-                        <span key={tech} className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1 text-xs font-medium text-[#e5e5e5] transition-colors hover:border-[#6366f1]/50 hover:bg-[#6366f1]/10">
+                        <span key={tech} className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1 text-xs font-medium text-[#e5e5e5] transition-colors hover:border-teal-500/50 hover:bg-teal-500/10">
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    {/* Highlighted GitHub/Project Link Button */}
+                    {/* Highlighted Link Button */}
                     <a
                       href={project.link}
                       target={project.link.startsWith('http') ? '_blank' : undefined}
                       rel={project.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="inline-flex items-center gap-2.5 rounded-xl border border-[#6366f1]/40 bg-[#6366f1]/15 px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#818cf8] hover:border-[#6366f1] hover:bg-[#6366f1] hover:text-white hover:shadow-[0_0_25px_rgba(99,102,241,0.6)] transition-all duration-300 shrink-0 group/btn"
+                      className="inline-flex items-center gap-2.5 rounded-xl border border-teal-500/40 bg-teal-500/15 px-6 py-3 text-xs font-bold uppercase tracking-wider text-teal-300 hover:border-teal-500 hover:bg-teal-500 hover:text-white hover:shadow-[0_0_25px_rgba(20,184,166,0.6)] transition-all duration-300 shrink-0 group/btn"
                     >
                       <span>{project.linkLabel}</span>
                       <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -18,9 +18,9 @@ export default function EducationSection() {
 
   return (
     <section id="education" className="bg-[#0a0a0a] pt-6 pb-24 relative overflow-hidden">
-      {/* Ambient background glow */}
-      <div className="pointer-events-none absolute top-1/3 right-10 -z-10 h-80 w-80 rounded-full bg-[#6366f1]/10 blur-[130px]" />
-      <div className="pointer-events-none absolute bottom-10 left-10 -z-10 h-80 w-80 rounded-full bg-[#818cf8]/5 blur-[130px]" />
+      {/* Ambient background glow - Updated to Teal */}
+      <div className="pointer-events-none absolute top-1/3 right-10 -z-10 h-80 w-80 rounded-full bg-teal-500/10 blur-[130px]" />
+      <div className="pointer-events-none absolute bottom-10 left-10 -z-10 h-80 w-80 rounded-full bg-teal-400/5 blur-[130px]" />
 
       {/* MATCHED CONTAINER: max-w-7xl ensures exact left-edge alignment with Skills & Achievements */}
       <div className="container-max mx-auto max-w-7xl px-6 relative z-10">
@@ -34,14 +34,14 @@ export default function EducationSection() {
           className="mb-16 space-y-4"
         >
           <motion.div variants={itemVariants} className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-md">
-            <span className="h-2 w-2 rounded-full bg-[#6366f1]" />
+            <span className="h-2 w-2 rounded-full bg-teal-500" />
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#a0a0a0]">
               Education
             </span>
           </motion.div>
 
           <motion.h2 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
-            Academic <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-[#818cf8]">Background</span>
+            Academic <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-teal-300">Background</span>
           </motion.h2>
         </motion.div>
 
@@ -56,13 +56,14 @@ export default function EducationSection() {
           {/* Top Hero Card: University */}
           <motion.div
             variants={itemVariants}
-            className="group relative rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 md:p-10 transition-all duration-500 hover:border-[#6366f1]/40 hover:bg-white/[0.04] shadow-2xl overflow-hidden"
+            className="group relative rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 md:p-10 transition-all duration-500 hover:border-teal-500/40 hover:bg-white/[0.04] shadow-2xl overflow-hidden"
           >
-            <div className="absolute top-0 right-0 -z-10 h-64 w-64 translate-x-20 -translate-y-20 rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.15)_0%,transparent_70%)] pointer-events-none" />
+            {/* Updated Radial Glow */}
+            <div className="absolute top-0 right-0 -z-10 h-64 w-64 translate-x-20 -translate-y-20 rounded-full bg-[radial-gradient(circle,rgba(20,184,166,0.15)_0%,transparent_70%)] pointer-events-none" />
 
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 border-b border-white/10 pb-8">
               <div className="space-y-2">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#6366f1]/30 bg-[#6366f1]/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#818cf8]">
+                <div className="inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-teal-300">
                   Bachelor of Science
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -80,7 +81,7 @@ export default function EducationSection() {
                     Final CGPA
                   </p>
                   <p className="text-3xl sm:text-4xl font-black text-white">
-                    3.90 <span className="text-lg font-medium text-[#6366f1]">/ 4.00</span>
+                    3.90 <span className="text-lg font-medium text-teal-500">/ 4.00</span>
                   </p>
                 </div>
               </div>
@@ -100,10 +101,10 @@ export default function EducationSection() {
             {/* HSC Card */}
             <motion.div
               variants={itemVariants}
-              className="group rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 transition-all duration-300 hover:border-[#6366f1]/40 hover:bg-white/[0.04] shadow-xl flex flex-col justify-between"
+              className="group rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 transition-all duration-300 hover:border-teal-500/40 hover:bg-white/[0.04] shadow-xl flex flex-col justify-between"
             >
               <div>
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#6366f1]">
+                <span className="text-xs font-semibold uppercase tracking-widest text-teal-400">
                   Higher Secondary (HSC)
                 </span>
                 <h4 className="mt-2 text-xl font-bold text-white tracking-tight">
@@ -123,10 +124,10 @@ export default function EducationSection() {
             {/* SSC / JSC Card */}
             <motion.div
               variants={itemVariants}
-              className="group rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 transition-all duration-300 hover:border-[#6366f1]/40 hover:bg-white/[0.04] shadow-xl flex flex-col justify-between"
+              className="group rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 transition-all duration-300 hover:border-teal-500/40 hover:bg-white/[0.04] shadow-xl flex flex-col justify-between"
             >
               <div>
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#6366f1]">
+                <span className="text-xs font-semibold uppercase tracking-widest text-teal-400">
                   SSC / JSC
                 </span>
                 <h4 className="mt-2 text-xl font-bold text-white tracking-tight">

@@ -4,199 +4,165 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 export default function HeroSection() {
-  const stats = [
-    { value: '4+', label: 'Projects Built', colSpan: 'col-span-1' },
-    { value: '3', label: 'Research Papers', colSpan: 'col-span-1' },
-  ];
-
-  const focusPoints = ['Research & Technology Enthusiast'];
-
-  const containerVariants = {
+  const container = {
     hidden: { opacity: 0 },
-    visible: {
+    show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
-    },
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } },
   };
 
   return (
-   <section id="hero" className="relative flex items-center justify-center overflow-hidden pt-28 pb-12 bg-[#0a0a0a]">
-      {/* Background Ambient Glows */}
-      <div className="absolute top-1/4 left-1/2 -z-20 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-[#6366f1]/20 via-[#818cf8]/10 to-transparent blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 -z-20 h-80 w-80 rounded-full bg-[#4f46e5]/15 blur-[100px] pointer-events-none" />
+    <section id="hero" className="relative flex flex-col pt-32 pb-8 overflow-hidden">
+      
+      {/* Background Glow Effects - Soft Sage & Dusty Periwinkle */}
+      <div className="absolute top-1/4 left-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-emerald-400/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 h-[600px] w-[600px] translate-x-1/3 translate-y-1/3 rounded-full bg-indigo-400/10 blur-[150px] pointer-events-none" />
 
-      {/* Subtle Architectural Grid */}
-      <div className="absolute inset-0 -z-10 opacity-30 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,black_40%,transparent_100%)] pointer-events-none" />
-
-      <div className="container-max mx-auto max-w-7xl px-6 relative z-10">
-        <div className="grid items-center gap-16 lg:grid-cols-[1.25fr_0.9fr]">
+      {/* Main Content Container */}
+      <div className="container-max relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 items-center w-full">
           
-          {/* Left Column: Editorial Hero Content */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="space-y-8"
+          {/* LEFT COLUMN: Typography & Actions */}
+          <motion.div 
+            variants={container} 
+            initial="hidden" 
+            animate="show" 
+            className="flex flex-col items-start w-full lg:pr-6"
           >
-            {/* Live Status Badge */}
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-md">
+            <motion.div variants={item} className="mb-6 flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 backdrop-blur-md">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6366f1] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#6366f1]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
               </span>
-              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#a0a0a0]">
-                Portfolio &amp; Research
+              <span className="text-[11px] font-bold uppercase tracking-widest text-[#a0a0a0]">
+                Portfolio & Research
               </span>
             </motion.div>
 
-            {/* Massive Editorial Name & Inline Roles */}
-            <motion.div variants={itemVariants} className="space-y-4">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white leading-[0.92]">
-                Nusrat Jahan <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-[#818cf8]">Bably</span>
-              </h1>
+            <motion.h1 variants={item} className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1] mb-6">
+              Nusrat Jahan <br />
+              <span className="bg-gradient-to-r from-teal-300 via-emerald-200 to-indigo-300 bg-clip-text text-transparent animate-gradient-x">
+                Bably
+              </span>
+            </motion.h1>
 
-              {/* Minimalist Typographic Focus Tags */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                {focusPoints.map((point, idx) => (
-                  <div key={point} className="flex items-center gap-3">
-                    <span className="text-sm md:text-base font-semibold uppercase tracking-widest text-[#818cf8]">
-                      {point}
-                    </span>
-                    {idx < focusPoints.length - 1 && (
-                      <span className="h-1.5 w-1.5 rounded-full bg-white/20" />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+            <motion.h2 variants={item} className="text-sm font-bold uppercase tracking-widest text-emerald-300 mb-6">
+              Research & Technology Enthusiast
+            </motion.h2>
 
-            {/* Crisp Bio Paragraph */}
-            <motion.p variants={itemVariants} className="max-w-2xl text-base sm:text-lg leading-relaxed text-[#a0a0a0] font-normal">
-              Aspiring tech professional with strong interests in research-driven innovation, AI, and full-stack development. Passionate about contributing to impactful
-projects that combine scientific inquiry, technology, and real-world problem solving. Skilled in learning new concepts, conducting analytical investigations, and
-collaborating in multidisciplinary environments while continuously pursuing growth and knowledge.
+            <motion.p variants={item} className="text-[15px] leading-relaxed text-[#a0a0a0] mb-10 max-w-lg">
+              Aspiring tech professional with strong interests in research-driven innovation, AI, and full-stack development. Passionate about contributing to impactful projects that combine scientific inquiry, scalable technology, and real-world problem solving. Skilled in learning new concepts, conducting analytical investigations, and collaborating in multidisciplinary environments while continuously pursuing growth and knowledge.
             </motion.p>
 
-            {/* Primary & Secondary Action Bar */}
-            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-2">
-              <Link
-                href="#projects"
-                className="relative inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#6366f1] to-[#4f46e5] px-8 py-4 text-sm font-bold text-white shadow-[0_10px_30px_rgba(99,102,241,0.3)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_15px_35px_rgba(99,102,241,0.4)] active:scale-[0.98]"
-              >
+            <motion.div variants={item} className="flex flex-wrap items-center gap-4">
+              <button className="rounded-xl bg-teal-600/90 px-7 py-3.5 text-sm font-bold text-white shadow-[0_0_20px_rgba(20,184,166,0.25)] transition-all hover:bg-teal-500 hover:scale-105 hover:shadow-[0_0_30px_rgba(20,184,166,0.4)]">
                 Explore Projects
-              </Link>
-              <Link
-                href="#research"
-                className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-7 py-4 text-sm font-bold text-white backdrop-blur-md transition-all duration-300 hover:border-[#6366f1]/50 hover:bg-white/[0.06] active:scale-[0.98]"
-              >
+              </button>
+              <button className="rounded-xl border border-white/10 bg-white/[0.03] px-7 py-3.5 text-sm font-bold text-[#e5e5e5] backdrop-blur-md transition-all hover:bg-white/[0.08] hover:text-white">
                 View Research
-              </Link>
-              <a
-                href="/cv/NusratJahanBably_CV.pdf"
-                download="NusratJahanBably_CV.pdf"
-                className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-7 py-4 text-sm font-bold text-[#e5e5e5] backdrop-blur-md transition-all duration-300 hover:border-white/30 hover:bg-white/[0.06] active:scale-[0.98]"
-              >
+              </button>
+              <button className="rounded-xl border border-white/10 bg-white/[0.03] px-7 py-3.5 text-sm font-bold text-[#e5e5e5] backdrop-blur-md transition-all hover:bg-white/[0.08] hover:text-white">
                 Download CV
-              </a>
+              </button>
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Sleek Bento Grid Stats */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="relative"
+          {/* RIGHT COLUMN: Modern Bento Grid */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}
+            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="flex flex-col gap-4 w-full max-w-[480px] mx-auto lg:mx-0 lg:ml-auto"
           >
-            <div className="grid grid-cols-2 gap-4 relative z-10">
+            {/* Top Card: Academic Excellence */}
+            <div className="group relative overflow-hidden rounded-[24px] border border-white/[0.08] bg-[#0d0d12]/80 p-7 shadow-2xl backdrop-blur-xl transition-all hover:border-emerald-500/30">
+              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-emerald-500/10 blur-[40px] transition-all group-hover:bg-emerald-500/20" />
               
-              {/* Highlight Featured Card: CGPA */}
-              <motion.div
-                variants={itemVariants}
-                className="col-span-2 relative rounded-3xl border border-[#6366f1]/30 bg-gradient-to-br from-[#6366f1]/15 via-white/[0.03] to-white/[0.01] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl overflow-hidden group hover:border-[#6366f1]/60 transition-all duration-500"
-              >
-                <div className="absolute -right-10 -bottom-10 h-40 w-40 rounded-full bg-[#6366f1]/20 blur-2xl group-hover:bg-[#6366f1]/30 transition-all duration-500 pointer-events-none" />
-                
-                <div className="flex items-start justify-between">
-                  <div>
-                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#818cf8]">
-                      Academic Excellence
-                    </span>
-                    <div className="mt-2 flex items-baseline gap-2">
-                      <span className="text-5xl sm:text-6xl font-black text-white tracking-tight">3.90</span>
-                      <span className="text-xl font-bold text-[#a0a0a0]">/ 4.00</span>
-                    </div>
+              <div className="relative z-10 flex items-start justify-between">
+                <div>
+                  <h3 className="text-[10px] font-bold uppercase tracking-widest text-emerald-300 mb-2">Academic Excellence</h3>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-5xl font-black tracking-tight text-white">3.90</span>
+                    <span className="text-lg font-bold text-[#555]">/4.00</span>
                   </div>
-                  <div className="h-12 w-12 rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center text-[#818cf8] font-bold">
-                    ★
-                  </div>
+                  <p className="mt-3 text-xs font-medium text-[#888]">B.Sc. in Computer Science & Engineering · UIU</p>
                 </div>
-                <p className="mt-4 text-sm text-[#a0a0a0] font-medium">
-                  B.Sc. in Computer Science &amp; Engineering · UIU
-                </p>
-              </motion.div>
+                
+                {/* Star Badge */}
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-emerald-200 backdrop-blur-md">
+                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
+                </div>
+              </div>
+            </div>
 
-              {/* Stat Card 1: Projects */}
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  variants={itemVariants}
-                  className="rounded-3xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/[0.04] flex flex-col justify-between aspect-square sm:aspect-auto sm:h-44"
-                >
-                  <div className="flex items-center justify-between text-xs font-bold text-[#707070]">
-                    <span>0{index + 1}</span>
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#6366f1]" />
+            {/* Middle Row: Qualitative Expertise Domains */}
+            <div className="grid grid-cols-2 gap-4">
+              
+              {/* Domain 1: Full-Stack Systems */}
+              <div className="group relative overflow-hidden rounded-[20px] border border-white/[0.08] bg-[#0d0d12]/80 p-5 shadow-lg backdrop-blur-xl transition-all hover:border-teal-500/30">
+                <div className="absolute -left-6 -bottom-6 h-24 w-24 rounded-full bg-teal-500/10 blur-[30px] transition-all group-hover:bg-teal-500/20" />
+                <div className="relative z-10">
+                  <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-300 transition-transform group-hover:scale-110">
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                   </div>
-                  <div>
-                    <p className="text-4xl sm:text-5xl font-black text-white tracking-tight">{stat.value}</p>
-                    <p className="mt-1 text-xs sm:text-sm font-medium text-[#a0a0a0]">{stat.label}</p>
-                  </div>
-                </motion.div>
-              ))}
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#777] mb-1">Engineering</h4>
+                  <p className="text-sm font-bold text-[#e5e5e5]">Full-Stack Systems</p>
+                </div>
+              </div>
 
-              {/* Philosophical Statement Card */}
-              <motion.div
-                variants={itemVariants}
-                className="col-span-2 rounded-3xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-xl"
-              >
-                <p className="text-xs font-semibold uppercase tracking-wider text-[#707070] mb-1">
-                  Design &amp; Engineering Philosophy
-                </p>
-                <p className="text-sm font-medium text-white/90 italic">
-                  &ldquo;Building systems where intelligence meets usability. Focused on clarity, scalability, and real-world impact.&rdquo;
-                </p>
-              </motion.div>
+              {/* Domain 2: AI & Deep Learning */}
+              <div className="group relative overflow-hidden rounded-[20px] border border-white/[0.08] bg-[#0d0d12]/80 p-5 shadow-lg backdrop-blur-xl transition-all hover:border-indigo-500/30">
+                <div className="absolute -right-6 -bottom-6 h-24 w-24 rounded-full bg-indigo-500/10 blur-[30px] transition-all group-hover:bg-indigo-500/20" />
+                <div className="relative z-10">
+                  <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 transition-transform group-hover:scale-110">
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                  </div>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#777] mb-1">Research Area</h4>
+                  <p className="text-sm font-bold text-[#e5e5e5]">AI & Deep Learning</p>
+                </div>
+              </div>
 
             </div>
-          </motion.div>
 
-        </div>
+            {/* Bottom Card: Philosophy */}
+            <div className="relative overflow-hidden rounded-[20px] border border-white/[0.08] bg-[#0d0d12]/80 p-6 shadow-lg backdrop-blur-xl">
+              <h3 className="text-[10px] font-bold uppercase tracking-widest text-[#777] mb-3">Design & Engineering Philosophy</h3>
+              <p className="text-[13px] font-medium italic leading-relaxed text-[#a0a0a0]">
+                "Building systems where intelligence meets usability. Focused on clarity, scalable architecture, and real-world impact."
+              </p>
+            </div>
 
-        {/* Centered Scroll Indicator (Now completely outside the columns) */}
-        <div className="w-full flex justify-center mt-16 relative z-10">
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.02] px-5 py-2 text-xs font-semibold uppercase tracking-widest text-[#707070] backdrop-blur-md"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#6366f1]" />
-            Scroll to explore
           </motion.div>
         </div>
+      </div>
 
-      </div> {/* End of container-max */}
+      {/* Button with a fixed margin */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+        className="mt-16 z-20 flex w-full justify-center"
+      >
+        <Link 
+          href="#about"
+          className="group flex w-max items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.08]"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+          </span>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#a0a0a0] transition-colors group-hover:text-white">
+            Scroll to Explore
+          </span>
+        </Link>
+      </motion.div>
+
     </section>
   );
 }

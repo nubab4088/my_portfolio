@@ -28,7 +28,7 @@ export default function SkillsSection() {
   return (
     <section id="skills" className="bg-[#0a0a0a] pt-6 pb-24 relative overflow-hidden">
       {/* Ambient Background Glow */}
-      <div className="pointer-events-none absolute bottom-1/4 right-10 -z-10 h-96 w-96 rounded-full bg-[#818cf8]/10 blur-[140px]" />
+      <div className="pointer-events-none absolute bottom-1/4 right-10 -z-10 h-96 w-96 rounded-full bg-teal-500/10 blur-[140px]" />
 
       {/* MATCHED CONTAINER: max-w-7xl ensures exact left-edge alignment */}
       <div className="container-max mx-auto max-w-7xl px-6 relative z-10">
@@ -42,14 +42,14 @@ export default function SkillsSection() {
           className="mb-16 space-y-4"
         >
           <motion.div variants={itemVariants} className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-md">
-            <span className="h-2 w-2 rounded-full bg-[#6366f1]" />
+            <span className="h-2 w-2 rounded-full bg-teal-500" />
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#a0a0a0]">
               Capabilities
             </span>
           </motion.div>
 
           <motion.h2 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
-            Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-[#818cf8]">Skills</span>
+            Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-teal-300">Skills</span>
           </motion.h2>
         </motion.div>
 
@@ -65,15 +65,15 @@ export default function SkillsSection() {
             <motion.div
               key={category}
               variants={itemVariants}
-              className="group relative rounded-3xl border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-500 hover:border-[#6366f1]/40 hover:bg-white/[0.04] shadow-xl flex flex-col justify-between"
+              className="group relative rounded-3xl border border-white/10 bg-white/[0.02] p-8 backdrop-blur-xl transition-all duration-500 hover:border-teal-500/40 hover:bg-white/[0.04] shadow-xl flex flex-col justify-between"
             >
               <div>
                 {/* Category Header with Index Badge */}
                 <div className="flex items-center justify-between mb-6">
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-xs font-bold text-[#818cf8] group-hover:border-[#6366f1]/50 group-hover:bg-[#6366f1]/10 transition-colors">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-xs font-bold text-teal-300 group-hover:border-teal-500/50 group-hover:bg-teal-500/10 transition-colors">
                     0{idx + 1}
                   </span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-white/20 group-hover:bg-[#6366f1] transition-colors" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/20 group-hover:bg-teal-500 transition-colors" />
                 </div>
 
                 <h3 className="text-xl font-extrabold text-white tracking-tight mb-6 group-hover:text-white/90">
@@ -85,7 +85,7 @@ export default function SkillsSection() {
                   {items.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs sm:text-sm font-medium text-[#e5e5e5] transition-all duration-300 hover:border-[#6366f1]/60 hover:bg-[#6366f1]/15 hover:text-white hover:scale-105 cursor-default select-none shadow-sm"
+                      className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs sm:text-sm font-medium text-[#e5e5e5] transition-all duration-300 hover:border-teal-500/60 hover:bg-teal-500/15 hover:text-white hover:scale-105 cursor-default select-none shadow-sm"
                     >
                       {skill}
                     </span>
