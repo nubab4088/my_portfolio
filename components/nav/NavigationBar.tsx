@@ -27,15 +27,15 @@ export default function NavigationBar() {
       initial={{ y: -30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-5 left-0 right-0 z-40 flex justify-center px-4 pointer-events-none"
+      className="fixed top-5 left-0 right-0 z-40 flex justify-center px-4 md:px-8 lg:px-12 pointer-events-none"
     >
-      <nav className="pointer-events-auto flex items-center justify-between gap-4 rounded-full border border-white/10 bg-[#0a0a0a]/85 px-6 py-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.7)] backdrop-blur-2xl transition-all duration-300 hover:border-white/20 w-full max-w-6xl">
+      <nav className="pointer-events-auto flex items-center justify-between gap-4 rounded-full border border-white/10 bg-[#0a0a0a]/85 px-6 py-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.7)] backdrop-blur-2xl transition-all duration-300 hover:border-white/20 w-full max-w-7xl">
         
         {/* Workstation Anchor: Side-Profile Laptop */}
         <Link 
           href="/#hero" 
           id="workstation-anchor" 
-          className="relative flex items-center h-[36px] w-[120px] shrink-0 group pointer-events-auto"
+          className="relative flex items-center justify-start h-[36px] w-[164px] shrink-0 group pointer-events-auto"
         >
           <span className="sr-only">Nusrat Jahan Bably - Home</span>
           
@@ -73,12 +73,14 @@ export default function NavigationBar() {
         </div>
 
         {/* Action Button - Updated to Soft Ethereal Palette */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex w-[164px] items-center justify-end gap-3 shrink-0">
           <a
-            href="tel:+8801828624088"
+            href="/cv/NusratJahanBably_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="relative inline-flex items-center justify-center rounded-full bg-gradient-to-r from-teal-300 to-emerald-400 px-5 py-2 text-xs font-bold uppercase tracking-wider text-black shadow-[0_0_15px_rgba(20,184,166,0.2)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(20,184,166,0.4)] active:scale-95"
           >
-            Contact
+            Download CV
           </a>
         </div>
       </nav>

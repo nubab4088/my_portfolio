@@ -24,16 +24,26 @@ export default function HeroSection() {
       <div className="absolute top-1/4 left-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-emerald-400/10 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 h-[600px] w-[600px] translate-x-1/3 translate-y-1/3 rounded-full bg-indigo-400/10 blur-[150px] pointer-events-none" />
 
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img
+          src="/back.jpeg"
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-cover opacity-[0.36] mix-blend-overlay"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#09090b]/10 via-[#09090b]/25 to-[#09090b]/50" />
+      </div>
+
       {/* Main Content Container */}
       <div className="container-max relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 items-center w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-start w-full">
           
           {/* LEFT COLUMN: Typography & Actions */}
           <motion.div 
             variants={container} 
             initial="hidden" 
             animate="show" 
-            className="flex flex-col items-start w-full lg:pr-6"
+            className="flex flex-col items-start w-full lg:pr-6 max-w-2xl"
           >
             <motion.div variants={item} className="mb-6 flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 backdrop-blur-md">
               <span className="relative flex h-2 w-2">
@@ -59,18 +69,6 @@ export default function HeroSection() {
             <motion.p variants={item} className="text-[15px] leading-relaxed text-[#a0a0a0] mb-10 max-w-lg">
               Aspiring tech professional with strong interests in research-driven innovation, AI, and full-stack development. Passionate about contributing to impactful projects that combine scientific inquiry, scalable technology, and real-world problem solving. Skilled in learning new concepts, conducting analytical investigations, and collaborating in multidisciplinary environments while continuously pursuing growth and knowledge.
             </motion.p>
-
-            <motion.div variants={item} className="flex flex-wrap items-center gap-4">
-              <button className="rounded-xl bg-teal-600/90 px-7 py-3.5 text-sm font-bold text-white shadow-[0_0_20px_rgba(20,184,166,0.25)] transition-all hover:bg-teal-500 hover:scale-105 hover:shadow-[0_0_30px_rgba(20,184,166,0.4)]">
-                Explore Projects
-              </button>
-              <button className="rounded-xl border border-white/10 bg-white/[0.03] px-7 py-3.5 text-sm font-bold text-[#e5e5e5] backdrop-blur-md transition-all hover:bg-white/[0.08] hover:text-white">
-                View Research
-              </button>
-              <button className="rounded-xl border border-white/10 bg-white/[0.03] px-7 py-3.5 text-sm font-bold text-[#e5e5e5] backdrop-blur-md transition-all hover:bg-white/[0.08] hover:text-white">
-                Download CV
-              </button>
-            </motion.div>
           </motion.div>
 
           {/* RIGHT COLUMN: Modern Bento Grid */}
@@ -78,7 +76,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}
             animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="flex flex-col gap-4 w-full max-w-[480px] mx-auto lg:mx-0 lg:ml-auto"
+            className="flex flex-col gap-4 w-full max-w-[560px] mx-auto lg:mx-0 lg:justify-self-end"
           >
             {/* Top Card: Academic Excellence */}
             <div className="group relative overflow-hidden rounded-[24px] border border-white/[0.08] bg-[#0d0d12]/80 p-7 shadow-2xl backdrop-blur-xl transition-all hover:border-emerald-500/30">

@@ -22,9 +22,12 @@ export default function RoamingDevCat() {
       const anchor = document.getElementById('workstation-anchor');
       if (anchor) {
         const rect = anchor.getBoundingClientRect();
+        const isMobile = window.innerWidth < 768;
+        
+        // Adjusted offsets for mobile to ensure the typing animation isn't cut off
         homePos.current = { 
-          x: rect.left - 25, 
-          y: rect.top - 42 
+          x: isMobile ? Math.max(rect.left - 5, 5) : rect.left - 25, 
+          y: isMobile ? rect.top - 55 : rect.top - 42 
         };
         
         if (window.scrollY < 50) {
@@ -83,15 +86,15 @@ export default function RoamingDevCat() {
     };
   }, [x, y]);
 
-  // --- 1-SECOND FRUSTRATION ENGINE ---
+  // --- 2-SECOND FRUSTRATION ENGINE ---
   useEffect(() => {
     let frustrationTimer: NodeJS.Timeout;
     let calmTimer: NodeJS.Timeout;
 
     if (catState === 'docked') {
       const scheduleFrustration = () => {
-        // Triggers every 1 second
-        const nextTime = 1000; 
+        // Triggers every 2 seconds
+        const nextTime = 2000; 
         
         frustrationTimer = setTimeout(() => {
           setIsFrustrated(true);
