@@ -124,7 +124,7 @@ export default function FuelProject() {
           </motion.p>
         </motion.div>
 
-        {/* UNIFIED METADATA PANEL - Replaces the 6 cluttered boxes */}
+        {/* UNIFIED METADATA PANEL */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -166,7 +166,6 @@ export default function FuelProject() {
           />
         </motion.div>
 
-        {/* Rest of the content stays identical to your original structure but spaced cleanly */}
         <motion.div
           id="build"
           initial={{ opacity: 0, y: 20 }}
@@ -250,9 +249,10 @@ export default function FuelProject() {
               { img: '/fuel/6.jpg', caption: 'Simulating extraction via syringe' },
               { img: '/fuel/7.jpg', caption: 'Bluetooth warning logs' },
             ].map((test, idx) => (
-              <div key={idx} className="rounded-3xl border border-white/10 bg-[#101010] p-3 shadow-xl">
-                <div className="w-full h-[240px] flex items-center justify-center bg-black/60 rounded-2xl overflow-hidden mb-3">
-                  <img src={test.img} alt={test.caption} className="max-h-full max-w-full object-contain" />
+              <div key={idx} className="group rounded-3xl border border-white/10 bg-[#101010] p-3 shadow-xl">
+                {/* FIXED: Increased height to 400px, added object-cover, and added group-hover scale effect */}
+                <div className="w-full h-[400px] flex items-center justify-center bg-[#050505] rounded-2xl overflow-hidden mb-3 relative">
+                  <img src={test.img} alt={test.caption} className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <p className="text-[11px] font-bold text-center uppercase tracking-widest text-[#707070] px-2 pb-1">{test.caption}</p>
               </div>
