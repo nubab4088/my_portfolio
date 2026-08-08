@@ -24,10 +24,12 @@ export default function RoamingDevCat() {
         const rect = anchor.getBoundingClientRect();
         const isMobile = window.innerWidth < 768;
         
-        // Adjusted offsets for mobile to ensure the typing animation isn't cut off
+        // FIXED ALIGNMENT: 
+        // Shifted the cat +10px to the right so it scoots just a bit closer to the laptop.
+        // Desktop is now +5, Mobile is now 0.
         homePos.current = { 
-          x: isMobile ? Math.max(rect.left - 5, 5) : rect.left - 25, 
-          y: isMobile ? rect.top - 55 : rect.top - 42 
+          x: isMobile ? rect.left + 0 : rect.left + 5, 
+          y: isMobile ? Math.max(rect.top - 25, 10) : rect.top - 42 
         };
         
         if (window.scrollY < 50) {
@@ -93,13 +95,11 @@ export default function RoamingDevCat() {
 
     if (catState === 'docked') {
       const scheduleFrustration = () => {
-        // Triggers every 2 seconds
         const nextTime = 2000; 
         
         frustrationTimer = setTimeout(() => {
           setIsFrustrated(true);
           
-          // Holds for 0.6 seconds before looping
           calmTimer = setTimeout(() => {
             setIsFrustrated(false);
             scheduleFrustration(); 
@@ -185,24 +185,40 @@ export default function RoamingDevCat() {
               )}
             </motion.g>
 
-            {/* PAWS */}
+            {/* PAWS - FAST REALISTIC TYPING ANIMATION */}
             {isFrustrated ? (
+              // Facepalm / Head grab
               <g>
                 <motion.path 
                   d="M 35 60 Q 30 38 46 36" 
                   stroke="#f8fafc" strokeWidth="6" strokeLinecap="round" fill="none" 
-                  animate={{ y: [0, 2, 0] }} transition={{ repeat: Infinity, duration: 0.2 }} 
+                  animate={{ y: [0, 1.5, 0] }} transition={{ repeat: Infinity, duration: 0.5, ease: "easeInOut" }} 
                 />
                 <motion.path 
                   d="M 50 65 Q 68 40 64 36" 
                   stroke="#e2e8f0" strokeWidth="6" strokeLinecap="round" fill="none" 
-                  animate={{ y: [0, 2, 0] }} transition={{ repeat: Infinity, duration: 0.2, delay: 0.05 }} 
+                  animate={{ y: [0, 1.5, 0] }} transition={{ repeat: Infinity, duration: 0.5, delay: 0.1, ease: "easeInOut" }} 
                 />
               </g>
             ) : (
+              // Fast Hacker-Speed Typing
               <g>
-                <motion.path d="M 45 60 L 78 68" stroke="#f8fafc" strokeWidth="6" strokeLinecap="round" animate={{ y: [0, -4, 0] }} transition={{ repeat: Infinity, duration: 0.15 }} />
-                <motion.path d="M 50 66 L 82 72" stroke="#e2e8f0" strokeWidth="6" strokeLinecap="round" animate={{ y: [0, -4, 0] }} transition={{ repeat: Infinity, duration: 0.2, delay: 0.05 }} />
+                {/* Back Paw (Left Hand) */}
+                <motion.path 
+                  d="M 45 60 L 76 81" 
+                  stroke="#f8fafc" strokeWidth="6" strokeLinecap="round" 
+                  style={{ transformOrigin: "45px 60px" }}
+                  animate={{ rotate: [0, -6, -2, -8, 0, -5, -1, 0, 0] }} 
+                  transition={{ repeat: Infinity, duration: 0.35, times: [0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.85, 0.9, 1], ease: "linear" }} 
+                />
+                {/* Front Paw (Right Hand) */}
+                <motion.path 
+                  d="M 50 66 L 82 83" 
+                  stroke="#e2e8f0" strokeWidth="6" strokeLinecap="round" 
+                  style={{ transformOrigin: "50px 66px" }}
+                  animate={{ rotate: [-5, 0, -7, -1, -6, 0, -3, 0, -5] }} 
+                  transition={{ repeat: Infinity, duration: 0.38, times: [0, 0.1, 0.25, 0.4, 0.55, 0.7, 0.8, 0.9, 1], ease: "linear" }} 
+                />
               </g>
             )}
           </svg>

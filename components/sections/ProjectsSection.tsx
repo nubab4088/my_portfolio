@@ -59,9 +59,9 @@ export default function ProjectsSection() {
         'Implemented wireless data transmission via Bluetooth and displayed metrics on I2C LCD.',
       ],
       image: '/achieve/p4.jpeg', 
-      link: '/fuel?from=%2F%23projects-fuel',
-      linkLabel: 'View Fuel Case Study',
-      anchor: 'projects-fuel',
+      // Linked directly to your component route /fuel
+      link: '/fuel',
+      linkLabel: 'View Case Study',
     },
   ];
 
@@ -117,7 +117,6 @@ export default function ProjectsSection() {
           {projects.map((project, idx) => (
             <motion.div
               key={idx}
-              id={project.anchor ? project.anchor : undefined}
               variants={itemVariants}
               className="group relative rounded-[2.5rem] border border-white/10 bg-white/[0.02] p-8 md:p-12 backdrop-blur-xl transition-all duration-500 hover:border-teal-500/40 hover:bg-white/[0.03] shadow-2xl overflow-hidden"
             >

@@ -43,7 +43,7 @@ export default function NavigationBar() {
             {/* Long Desk Line */}
             <line x1="5" y1="36" x2="115" y2="36" stroke="#444" strokeWidth="2.5" strokeLinecap="round" />
             
-            {/* Screen Glow (Projecting left towards the cat) - Updated to Soft Teal */}
+            {/* Screen Glow (Projecting left towards the cat) */}
             <motion.path d="M 83 12 L 40 18 L 40 32 L 80 32 Z" fill="#2dd4bf" opacity="0.15" animate={{ opacity: [0.1, 0.25, 0.1] }} transition={{ repeat: Infinity, duration: 3 }} />
             
             {/* Side-Profile Laptop Base (Keyboard Deck) */}
@@ -72,15 +72,15 @@ export default function NavigationBar() {
           ))}
         </div>
 
-        {/* Action Button - Updated to Soft Ethereal Palette */}
+        {/* Action Button - Updated to Premium Glassmorphism */}
         <div className="flex w-[164px] items-center justify-end gap-3 shrink-0">
           <a
             href="/cv/NusratJahanBably_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-flex items-center justify-center rounded-full bg-gradient-to-r from-teal-300 to-emerald-400 px-5 py-2 text-xs font-bold uppercase tracking-wider text-black shadow-[0_0_15px_rgba(20,184,166,0.2)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(20,184,166,0.4)] active:scale-95"
+            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-teal-500/40 bg-teal-500/10 px-5 py-2 text-[11px] font-bold uppercase tracking-widest text-teal-300 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-teal-400 hover:bg-teal-500/20 hover:text-white hover:shadow-[0_0_20px_rgba(45,212,191,0.3)] active:scale-95"
           >
-            Download CV
+            <span>Download CV</span>
           </a>
         </div>
       </nav>
