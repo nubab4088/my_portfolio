@@ -24,15 +24,15 @@ export default function HeroSection() {
       <div className="absolute top-1/4 left-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-emerald-400/10 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 h-[600px] w-[600px] translate-x-1/3 translate-y-1/3 rounded-full bg-indigo-400/10 blur-[150px] pointer-events-none" />
 
-      {/* RESTORED BACKGROUND: Increased opacity to 20% and lightened the top gradient */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      {/* FIXED BACKGROUND: Added -translate-x to shift the whole image to the left */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex justify-center items-center">
         <img
           src="/back.jpeg"
-          alt=""
+          alt="Background"
           aria-hidden="true"
-          className="h-full w-full object-cover opacity-20 mix-blend-overlay grayscale-[30%]"
+          className="h-full w-full max-w-[1400px] object-contain object-center -translate-x-16 md:-translate-x-24 lg:-translate-x-40 opacity-[0.25] mix-blend-overlay grayscale-[15%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/60 via-[#0a0a0a]/90 to-[#0a0a0a]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/20 via-[#050505]/70 to-[#050505]" />
       </div>
 
       {/* Main Content Container */}
@@ -142,7 +142,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* FIXED BUTTON ALIGNMENT: Using left-0 right-0 to guarantee true center */}
+      {/* Button docked to the absolute bottom center */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}

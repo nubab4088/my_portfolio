@@ -5,6 +5,7 @@ import { motion, animate, useMotionValue, AnimatePresence } from 'framer-motion'
 
 export default function RoamingDevCat() {
   const [isMounted, setIsMounted] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [catState, setCatState] = useState<'docked' | 'walking' | 'idle'>('docked');
   const [facingRight, setFacingRight] = useState(true);
   const [isFrustrated, setIsFrustrated] = useState(false);
@@ -20,22 +21,25 @@ export default function RoamingDevCat() {
     
     const updateHomePosition = () => {
       const anchor = document.getElementById('workstation-anchor');
-      if (anchor) {
-        const rect = anchor.getBoundingClientRect();
-        const isMobile = window.innerWidth < 768;
-        
-        // FIXED ALIGNMENT: 
-        // Shifted the cat +10px to the right so it scoots just a bit closer to the laptop.
-        // Desktop is now +5, Mobile is now 0.
-        homePos.current = { 
-          x: isMobile ? rect.left + 0 : rect.left + 5, 
-          y: isMobile ? Math.max(rect.top - 25, 10) : rect.top - 42 
-        };
-        
-        if (window.scrollY < 50) {
-          x.set(homePos.current.x);
-          y.set(homePos.current.y);
-        }
+      
+      // BUG FIX: Hide the cat entirely if the laptop anchor isn't on the screen
+      if (!anchor) {
+        setIsVisible(false);
+        return;
+      }
+      setIsVisible(true);
+
+      const rect = anchor.getBoundingClientRect();
+      const isMobile = window.innerWidth < 768;
+      
+      homePos.current = { 
+        x: isMobile ? rect.left + 0 : rect.left + 5, 
+        y: isMobile ? Math.max(rect.top - 25, 10) : rect.top - 42 
+      };
+      
+      if (window.scrollY < 50) {
+        x.set(homePos.current.x);
+        y.set(homePos.current.y);
       }
     };
 
@@ -119,7 +123,8 @@ export default function RoamingDevCat() {
     };
   }, [catState]);
 
-  if (!isMounted) return null;
+  // Prevent rendering if not mounted or if the anchor isn't visible on this page
+  if (!isMounted || !isVisible) return null;
 
   return (
     <motion.div
@@ -185,7 +190,7 @@ export default function RoamingDevCat() {
               )}
             </motion.g>
 
-            {/* PAWS - FAST REALISTIC TYPING ANIMATION */}
+            {/* PAWS - FAST TYPING ANIMATION */}
             {isFrustrated ? (
               // Facepalm / Head grab
               <g>
@@ -203,7 +208,6 @@ export default function RoamingDevCat() {
             ) : (
               // Fast Hacker-Speed Typing
               <g>
-                {/* Back Paw (Left Hand) */}
                 <motion.path 
                   d="M 45 60 L 76 81" 
                   stroke="#f8fafc" strokeWidth="6" strokeLinecap="round" 
@@ -211,7 +215,6 @@ export default function RoamingDevCat() {
                   animate={{ rotate: [0, -6, -2, -8, 0, -5, -1, 0, 0] }} 
                   transition={{ repeat: Infinity, duration: 0.35, times: [0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.85, 0.9, 1], ease: "linear" }} 
                 />
-                {/* Front Paw (Right Hand) */}
                 <motion.path 
                   d="M 50 66 L 82 83" 
                   stroke="#e2e8f0" strokeWidth="6" strokeLinecap="round" 
